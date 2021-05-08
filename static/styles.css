@@ -1,0 +1,24 @@
+.App {
+    text-align: center;
+    margin-top: 4%;
+    color: #123c69;
+    
+  }
+  .App h1{
+    font-size: 320%;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+  }
+  .Sideblockleft{
+    width: max-content;
+    margin-top: 10%;
+    margin-left: 8%;
+    text-align: left;
+    font-size: 120%;
+    color: #123c69;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+  }
+  .Sideblockright{
+    width: 30%;
+    margin-left: 60%;
+    margin-top: -7%;
+  }
