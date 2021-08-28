@@ -16,4 +16,4 @@ To install do the following:
 8. There is new thing I found is that yahoo finance api randomly stop responding, because I faced that too then I look over StackOverflow where it states that it happens because yahoo limit the person accessibility.
 9. For that I use manually datasets and I suggest you to find other api or use manuall datasets.
 10. I am uploading that file with name model_1.py where code is work when you have saome maual dataset downloaded in your system i.e., csv files.
-11.
+
