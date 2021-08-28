@@ -1,17 +1,38 @@
-import numpy as np,pandas as pd
+import numpy as np
 from statsmodels.tsa.statespace.sarimax import SARIMAX
 from datetime import date
 from yahoo_fin.stock_info import get_data
 import datetime
+import pandas as pd
 from pandas import DataFrame
-
-
+# import yfinance as yf
 def sarimax_model(ticker):
         # Dataset Building##
-    today = date.today()
-    end_d = str(str(today.day)+"/"+str(today.month)+"/"+str(today.year))
-    df = get_data(ticker, end_date = end_d, index_as_date = True, interval ='1mo')
-    ds = df[['close']]
+    if ticker=="msft":
+        df=pd.read_csv("/home/numberdaar/MyProject/csv/MSFT.csv")
+    elif ticker=="qcom":
+        df=pd.read_csv("/home/numberdaar/MyProject/csv/QCOM.csv")
+    elif ticker=="nvda":
+        df=pd.read_csv("/home/numberdaar/MyProject/csv/NVDA.csv")
+    elif ticker=="adbe":
+        df=pd.read_csv("/home/numberdaar/MyProject/csv/ADBE.csv")
+    elif ticker=="amgn":
+        df=pd.read_csv("/home/numberdaar/MyProject/csv/AMGN.csv")
+    elif ticker=="pypl":
+        df=pd.read_csv("/home/numberdaar/MyProject/csv/PYPL.csv")
+    elif ticker=="goog":
+        df=pd.read_csv("/home/numberdaar/MyProject/csv/GOOG.csv")
+    elif ticker=="amzn":
+        df=pd.read_csv("/home/numberdaar/MyProject/csv/AMZN.csv")
+    elif ticker=="aapl":
+        df=pd.read_csv("/home/numberdaar/MyProject/csv/AAPL.csv")
+    elif ticker=="tsla":
+        df=pd.read_csv("/home/numberdaar/MyProject/csv/TSLA.csv")
+    elif ticker=="fb":
+        df=pd.read_csv("/home/numberdaar/MyProject/csv/FB.csv")
+    df.set_index("Date", inplace = True)
+    df.index = pd.to_datetime(df.index)
+    ds=df['Close']
         ##Model Fitting##
     model = SARIMAX(ds,  order = (2,0,1),  seasonal_order = (2, 1, 0, 12)) 
     result = model.fit() 
@@ -19,21 +40,17 @@ def sarimax_model(ticker):
     dti = pd.date_range(str(ds.index[-1]), periods=12, freq="M")
     forecast = result.predict(start = str(ds.index[-1]), end = (len(ds)-1)+11, typ='levels') 
     forecast.index=dti
-    l=[]
-    da=str(ds.index[-1].year)+str(ds.index[-1].month)+str(ds.index[-1].day)
-    for i in range(len(ds)):
-        l.append([ds.index[i],ds['close'][i]])
-    for i in range(len(dti)):
-        l.append([dti[i],forecast.get(key=dti[i])])
-    dff = DataFrame (l,columns=['Date','Forecast']) 
-    year=dff['Date'].dt.year
-    month=dff['Date'].dt.month
-    day=dff['Date'].dt.day
-    ldates=[]
-    for i in range(len(year)):
-        sr=str(year[i])+str(month[i])+str(day[i])
-        ldates.append(int(sr))
-    dff_forecast=dff['Forecast'].tolist()
-    return [ldates,dff_forecast,da]
-
-
+    ss=ds.append(forecast)
+    dff = ss.to_frame()
+    idx = pd.Index(dff)
+    dff_f = idx.to_list()
+    dff_forecast = []
+    dff_dates = []
+    for i in range(len(dff_f)):
+        dff_forecast.append(dff_f[i][0])
+    for i in range(len(dff)):
+        st = str(dff.index[i])
+        d = str(st[:4])+str(st[5:7])+str(st[8:10])
+        dff_dates.append(int(d))
+    da=str(dff_dates[-14])
+    return [dff_dates,dff_forecast,da]
