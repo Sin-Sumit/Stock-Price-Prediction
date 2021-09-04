@@ -11,4 +11,9 @@ To install do the following:
 3. move to flask application page which is app.py.
 4. then then that python file you will get a local host http.
 5. open it in browser and enter the ticker symbol of a listed stock.
-6. And if any error occurred then you didn't install correctly all the things.
+6. And if any error occurred then you can contact me.
+7. ##IMPORTANT KEY POINTS##
+8. There is new thing I found is that yahoo finance api randomly stop responding, because I faced that too then I look over StackOverflow where it states that it happens because yahoo limit the person accessibility.
+9. For that I use manually datasets and I suggest you to find other api or use manuall datasets.
+10. I am uploading that file with name model_1.py where code is work when you have saome maual dataset downloaded in your system i.e., csv files.
+

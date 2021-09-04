@@ -9,27 +9,27 @@ from pandas import DataFrame
 def sarimax_model(ticker):
         # Dataset Building##
     if ticker=="msft":
-        df=pd.read_csv("/home/numberdaar/MyProject/csv/MSFT.csv")
+        df=pd.read_csv("<relative pathto respective csv file>/MSFT.csv")
     elif ticker=="qcom":
-        df=pd.read_csv("/home/numberdaar/MyProject/csv/QCOM.csv")
+        df=pd.read_csv("<relative pathto respective csv file>/QCOM.csv")
     elif ticker=="nvda":
-        df=pd.read_csv("/home/numberdaar/MyProject/csv/NVDA.csv")
+        df=pd.read_csv("<relative pathto respective csv file>/NVDA.csv")
     elif ticker=="adbe":
-        df=pd.read_csv("/home/numberdaar/MyProject/csv/ADBE.csv")
+        df=pd.read_csv("<relative pathto respective csv file>/ADBE.csv")
     elif ticker=="amgn":
-        df=pd.read_csv("/home/numberdaar/MyProject/csv/AMGN.csv")
+        df=pd.read_csv("<relative pathto respective csv file>/AMGN.csv")
     elif ticker=="pypl":
-        df=pd.read_csv("/home/numberdaar/MyProject/csv/PYPL.csv")
+        df=pd.read_csv("<relative pathto respective csv file>/PYPL.csv")
     elif ticker=="goog":
-        df=pd.read_csv("/home/numberdaar/MyProject/csv/GOOG.csv")
+        df=pd.read_csv("<relative pathto respective csv file>/GOOG.csv")
     elif ticker=="amzn":
-        df=pd.read_csv("/home/numberdaar/MyProject/csv/AMZN.csv")
+        df=pd.read_csv("<relative pathto respective csv file>/AMZN.csv")
     elif ticker=="aapl":
-        df=pd.read_csv("/home/numberdaar/MyProject/csv/AAPL.csv")
+        df=pd.read_csv("<relative pathto respective csv file>/AAPL.csv")
     elif ticker=="tsla":
-        df=pd.read_csv("/home/numberdaar/MyProject/csv/TSLA.csv")
+        df=pd.read_csv("<relative pathto respective csv file>/TSLA.csv")
     elif ticker=="fb":
-        df=pd.read_csv("/home/numberdaar/MyProject/csv/FB.csv")
+        df=pd.read_csv("<relative pathto respective csv file>/FB.csv")
     df.set_index("Date", inplace = True)
     df.index = pd.to_datetime(df.index)
     ds=df['Close']
