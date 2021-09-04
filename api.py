@@ -1,3 +1,6 @@
+#This is for API, where API fetch the data, and it perform some operation on it and it will be ready to predict.
+#Pro - It helps by not saving the csv files in the system.
+
 import numpy as np
 from statsmodels.tsa.statespace.sarimax import SARIMAX
 from datetime import date
