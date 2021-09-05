@@ -31,7 +31,9 @@
       
   # Video
       
-    https://user-images.githubusercontent.com/48879218/132117802-e6999de7-8124-4e9f-853e-88ffce0152f1.mp4
+<center>
+  <img src="https://user-images.githubusercontent.com/48879218/132117802-e6999de7-8124-4e9f-853e-88ffce0152f1.mp4" width="100%"/>
+</center>
       
 
 <p align="center">
